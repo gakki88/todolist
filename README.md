@@ -14,6 +14,7 @@ Runs the backend of the app, connected to mongoDB using mongoose. Port 5000.
 - create new user
 - create new to-do item
 - view created items
+- edit items
 - delete item
 
 ### Stack used

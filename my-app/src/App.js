@@ -6,6 +6,7 @@ import Header from './components/Header';
 import ItemsList from "./components/items-list";
 import CreateItem from "./components/create-item";
 import CreateUser from "./components/create-user";
+import EditItem from "./components/edit-item";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/" exact component={ItemsList} />
       <Route path="/create" component={CreateItem} />
       <Route path="/user" component={CreateUser} />
+      <Route path="/edit/:id" component={EditItem}></Route>
       </div>
     </Router>
   );

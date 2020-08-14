@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Item = props => (
   <tr>
@@ -7,6 +8,9 @@ const Item = props => (
     <td>{props.item.description}</td>
     <td>{props.item.startTime}</td>
     <td>{props.item.duration}</td>
+    <td>
+      <Link to={"/edit/"+props.item._id} className="nav-link">edit</Link>
+    </td>
     <td>
       <button onClick={() => { props.deleteItem(props.item._id) }}>delete</button>
     </td>
@@ -41,6 +45,11 @@ export default class ItemsList extends Component {
     })
   }
 
+  editItem(id){
+    axios.post('http://localhost:5000/list/update'+id)
+      .then()
+  }
+
   List() {
     return this.state.items.map(currentItem => {
       return <Item item={currentItem} deleteItem={this.deleteItem} key={currentItem._id}/>;
@@ -58,6 +67,7 @@ export default class ItemsList extends Component {
               <th>Description</th>
               <th>Start Time</th>
               <th>Duration</th>
+              <th>Edit Item</th>
               <th>Done</th>
             </tr>
           </thead>
